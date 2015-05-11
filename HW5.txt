@@ -1,0 +1,96 @@
+建立類別庫實做 IFtpClient 的各項FTP相關功能
+並對各功能做單元測試
+
+1.取得Server端根目錄檔案列表
+2.透過FTP把r5.jpg上傳到Server端
+3.透過FTP從Server端取得bunny_20140725_12345678.jpg
+4.透過Proxy把上面1.~3.再做一次
+
+--
+測試機 ip: 10.27.68.155  user: ICASH\Administrator   pwd: 123@bankpro
+
+Proxy ip: 10.27.68.155
+Proxy port: 8021
+Proxy user: icftpproxy
+Proxy pwd:  bankpro
+
+ip: 10.27.68.155
+port: 21
+user: icftp
+pwd:  icftp
+
+根目錄: C:\ftproot\icftp\
+
+--
+提示:
+
+使用NuGet取得下列dll:
+
+1. Common.Logging                2.1.2
+2. Common.Logging.Log4Net1211    2.1.2
+3. log4net.dll                   1.2.13
+4. WinSCPnet
+
+
+請實做下列Interface:
+
+public interface IFtpClient : IDisposable
+    {
+        /// <summary>
+        /// 開啟 ftp 或是 ftp proxy 連線
+        /// </summary>
+        /// <param name="host">ftp host</param>
+        /// <param name="port">ftp port</param>
+        void Open( string host, int port );
+
+        /// <summary>
+        ///  使用指定的 ftp user/password 登入ftp server
+        /// </summary>
+        /// <param name="user">ftp user</param>
+        /// <param name="pwd">ftp password</param>
+        void Logon(string user, string pwd);
+
+        /// <summary>
+        ///  使用 proxy 登入指定的 ftp server user after logon
+        /// </summary>
+        /// <param name="proxyUser">proxy user id</param>
+        /// <param name="proxyPasswd">proxy user password</param>
+        /// <param name="destUser">destination user id(user@host:port)</user></param>
+        /// <param name="destPasswd">destination user password</param>
+        void Logon(string proxyUser, string proxyPwd, string destUser, string destPwd);
+
+        /// <summary>
+        ///    Delete file from ftp server
+        /// </summary>
+        /// <param name="sName">file name</param>
+        /// <param name="fIgnoreNotExist">Fire exceiption if the file does not exist when the flag set to false.</param>
+        void DeleteFile(string sName, bool fIgnoreNotExist);
+
+        /// <summary>
+        ///   Get the file list of current directory
+        /// </summary>
+        /// <returns>string array of files</returns>
+        string[] GetDirectoryList();
+
+        /// <summary>
+        /// Send file by stream with name
+        /// </summary>
+        /// <param name="name">name of file to send to ftp server</param>
+        /// <param name="stream">steam of source file</param>
+        void SendFile(String name, String sourcePath );
+
+        /// <summary>
+        ///   get a single file from server
+        /// </summary>
+        /// <param name="sName">file name</param>
+        /// <param name="stream">stream of file</param>
+        void GetFile(string sName, String destPath);
+
+
+        /// <summary>
+        /// Close ftp connection
+        /// </summary>
+        void Close();
+
+        bool FileExists(string remoteFile);
+    }

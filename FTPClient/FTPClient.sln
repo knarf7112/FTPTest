@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTPClient", "FTPClient\FTPClient.csproj", "{FEDEDAE1-E8F6-4733-B4DE-7A6D5B592DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTPClient_UnitTest", "FTPClient_UnitTest\FTPClient_UnitTest.csproj", "{727FBB5C-D7FC-42D1-87D7-ED7D805CC346}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEDEDAE1-E8F6-4733-B4DE-7A6D5B592DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDEDAE1-E8F6-4733-B4DE-7A6D5B592DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDEDAE1-E8F6-4733-B4DE-7A6D5B592DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDEDAE1-E8F6-4733-B4DE-7A6D5B592DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{727FBB5C-D7FC-42D1-87D7-ED7D805CC346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727FBB5C-D7FC-42D1-87D7-ED7D805CC346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727FBB5C-D7FC-42D1-87D7-ED7D805CC346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727FBB5C-D7FC-42D1-87D7-ED7D805CC346}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
